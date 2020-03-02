@@ -1,11 +1,11 @@
 
-# =============================================================================== 
+## =============================================================================== 
 import requests
 import json
 import time
 # =============================
-# print(response.status_code) |
-# print(response.json())      |
+# print(response.status_code) | Data gada, memasukkan pas awalnya gimana
+# print(response.json())      | 
 # =============================
 def get_respon():
     response = requests.get("http://10.33.109.242:5000/connections")
@@ -21,7 +21,7 @@ def biar_rapi():
     for ar in get_respon(): 
         results.append(ar) 
     # print (len(results))
-    print (len(get_respon()))
+    print ("Data sekarang adalah : {}".format(len(get_respon())))
     # ===============================================================
     lama = len(get_respon())
     time.sleep(30)
@@ -32,7 +32,9 @@ def biar_rapi():
         for ar in get_respon(): 
             results.append(ar)
         for update in range(lama,baru):
-            print (results[update])       
+            print (results[update])
+    else :
+        print("Tidak ada penambahan data terbaru pada Dionaea!")       
 biar_rapi()
 
 

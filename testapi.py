@@ -36,4 +36,4 @@ def tabel1():
 
 
 
-app.run(debug=True)
+app.run(debug=True,host='10.33.109.242')
