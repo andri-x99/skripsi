@@ -1,14 +1,16 @@
 from pymongo import MongoClient 
-  
-try: 
-    koneksi = MongoClient('localhost',27017) 
-    print("Connected successfully!!!") 
-except:   
-    print("Could not connect to MongoDB") 
+import datetime
 
-db = koneksi.database
-collection =  db.connections
-print(collection.find())
+def kakak():
+    try: 
+        koneksi = MongoClient('localhost',27017) 
+        print("Connected successfully!!!") 
+    except:   
+        print("Could not connect to MongoDB") 
+
+    db = koneksi.database
+    collection =  db.connections
+    return collection.find()
 
 
 # https://www.geeksforgeeks.org/mongodb-python-insert-update-data/
