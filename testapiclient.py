@@ -1,7 +1,5 @@
 ## =============================================================================== 
-import requests
-import json
-import time
+import requests, time
 from flask import Flask
 from pymongo import MongoClient 
 
@@ -28,14 +26,14 @@ def tabel_ke_1():
     #                   KONEKSI KE DATABASE MONGO
     # =================================================================
     try: 
-        koneksi = MongoClient('localhost',27017) 
+        koneksi = MongoClient('localhost',27017)
+        db = koneksi.dionea
+        collection =  db.connections 
         print("Menghubungkan ke MongoDB..............") 
         print("Berhasil Terhubung!") 
     except:   
         print("Maaf, belum bisa terhubung dengan MongoDB")
         print("Silahkan check kembali konfigurasi Anda")
-    db = koneksi.dionea
-    collection =  db.connections
     # =================================================================
     #                 MENGHITUNG DATA YANG ADA DI API
     # =================================================================
@@ -51,7 +49,7 @@ def tabel_ke_1():
     time.sleep(10)
     baru = len(get_respon1())
     # =================================================================
-    #            MENAMPILKAN DAN MEMASUKKAN KE MONGODB
+    #   ada -     MENAMPILKAN DAN MEMASUKKAN KE MONGODB
     # =================================================================
     if baru > lama:
         results = []
@@ -60,13 +58,13 @@ def tabel_ke_1():
         for update in range(lama,baru):
             print (results[update])
             collection.insert(results[update])
-            # for data in results[update]:
-            #     db.collection.find()
     else :
         print("Tidak ada penambahan data terbaru pada Dionaea!")
 tabel_ke_1()
 
-
+# buat endpoint buat manggil function diatas
+# flask restfull+
+# biar rapi = factory pattern
 
 # if x 
 # ======================================================================
