@@ -95,4 +95,4 @@ def tabel11():
     data = getData(res, cur)
     return jsonify(data)
 
-app.run(debug=True,host='10.33.109.242')
+app.run(debug=True, host='10.33.109.245')

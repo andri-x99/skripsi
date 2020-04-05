@@ -1,0 +1,66 @@
+Firebase ;
+1. Cloud BackEnd As A Service : Seorang web n mobile devop, fokus ke front end nya aja, fungsi backend diserahkan ke Firebase
+2. RealTime Database, NoSQL
+3. SQL : Tabel mahasiswa , atribut(row) nama kelas nim
+   NoSQL : Collection mahasiswa, document(row) nama kelas nim
+TestLab, Auth, Realtime Database, Hosting, Notification
+
+1 = bit.ly/33f3Ew4 / https://www.qwiklabs.com/focuses/660?locale=id&parent=catalog
+2 = http://bit.ly/3aUlPtA
+
+Step :
+http://bit.ly/3aUlPtA
+Sign in google, go back, choose serverless
+Google Console
+Limit 1 Jam
+Login username + pass temporary dis
+
+itu juga
+Nyambungin setup + Hosting
+Apps Dokter Hewan :
+1. Enable Firebase API GCP Mode
+2. COnfig
+3. Web Service
+4. Auth
+
+GCloud : Command Line atau terminal untuk GCP (google cloud platforn) ==> https://console.cloud.google.com/firestore/data?authuser=4&project=qwiklabs-gcp-01-5307865f4da7
+Firebase : BackEnd ==> https://console.firebase.google.com/u/0/?pli=1
+
+User Pass Temp :
+https://www.qwiklabs.com/focuses/660?locale=id&parent=catalog
+
+Web TOKEN :
+Got FCM device token: 
+c44_ACVVn0gHXe9u5WQdko:APA91bFfRE_iDBCxTmYFrPRFJRCekf_FkkxwRRJwCd9ZIYOnMkn1Z9Xdwn5jQos9z6UJahiXLcdMdtLHN3LUa-zp3TaqDkA-EbwTrPon1oBm0RNxyADEYEMQt2YcAe0f0ym7bN0d5IWR
+
+Server Key :
+AAAA-jlqLkk:APA91bGN5Yxy5zrPvjP3PEd5QeQ60Kzr6KSRtxkPTxuy0x5AUdDL3GzOOI6z6wWIhn7klgQT5jTMO5kjs8T6BS0_d40xfHDMmCEY2bsmdJ8x7qVEAOLrbrhCCkc1u72eubLfFErb0s3Q
+
+
+POST /fcm/send HTTP/1.1
+Host: fcm.googleapis.com
+Content-Type: application/json
+Authorization: key=AAAA-jlqLkk:APA91bGN5Yxy5zrPvjP3PEd5QeQ60Kzr6KSRtxkPTxuy0x5AUdDL3GzOOI6z6wWIhn7klgQT5jTMO5kjs8T6BS0_d40xfHDMmCEY2bsmdJ8x7qVEAOLrbrhCCkc1u72eubLfFErb0s3Q
+
+{
+  "notification": {
+    "title": "New chat message!",
+    "body": "There is a new message in FriendlyChat",
+    "icon": "/images/profile_placeholder.png",
+    "click_action": "https://qwiklabs-gcp-00-f0edc2b629c4.firebaseapp.com/"
+  },
+  "to":"c44_ACVVn0gHXe9u5WQdko:APA91bFfRE_iDBCxTmYFrPRFJRCekf_FkkxwRRJwCd9ZIYOnMkn1Z9Xdwn5jQos9z6UJahiXLcdMdtLHN3LUa-zp3TaqDkA-EbwTrPon1oBm0RNxyADEYEMQt2YcAe0f0ym7bN0d5IWR"
+}
+-----------------------------------------------------------------------------------
+curl -H "Content-Type: application/json" \
+     -H "Authorization: key=AAAA-jlqLkk:APA91bGN5Yxy5zrPvjP3PEd5QeQ60Kzr6KSRtxkPTxuy0x5AUdDL3GzOOI6z6wWIhn7klgQT5jTMO5kjs8T6BS0_d40xfHDMmCEY2bsmdJ8x7qVEAOLrbrhCCkc1u72eubLfFErb0s3Q" \
+     -d '{
+           "notification": {
+             "title": "New chat message!",
+             "body": "There is a new message in FriendlyChat",
+             "icon": "/images/profile_placeholder.png",
+             "click_action": "https://qwiklabs-gcp-00-f0edc2b629c4.firebaseapp.com/"
+           },
+           "to": "c44_ACVVn0gHXe9u5WQdko:APA91bFfRE_iDBCxTmYFrPRFJRCekf_FkkxwRRJwCd9ZIYOnMkn1Z9Xdwn5jQos9z6UJahiXLcdMdtLHN3LUa-zp3TaqDkA-EbwTrPon1oBm0RNxyADEYEMQt2YcAe0f0ym7bN0d5IWR"
+         }' \
+     https://fcm.googleapis.com/fcm/send
